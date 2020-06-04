@@ -16,6 +16,12 @@
 		D995A442248928870052CE6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D995A440248928870052CE6B /* LaunchScreen.storyboard */; };
 		D995A44D248928880052CE6B /* TwitterAPIAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A44C248928880052CE6B /* TwitterAPIAppTests.swift */; };
 		D995A458248928880052CE6B /* TwitterAPIAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A457248928880052CE6B /* TwitterAPIAppUITests.swift */; };
+		D995A46F248929CF0052CE6B /* HTTPRequestMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A46C248929CF0052CE6B /* HTTPRequestMethods.swift */; };
+		D995A470248929CF0052CE6B /* APICallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A46D248929CF0052CE6B /* APICallBuilder.swift */; };
+		D995A471248929CF0052CE6B /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A46E248929CF0052CE6B /* APICall.swift */; };
+		D995A475248929F10052CE6B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A472248929F00052CE6B /* Location.swift */; };
+		D995A476248929F10052CE6B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A473248929F10052CE6B /* LocationService.swift */; };
+		D995A477248929F10052CE6B /* LocationUpdateModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A474248929F10052CE6B /* LocationUpdateModes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		D995A453248928880052CE6B /* TwitterAPIAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterAPIAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D995A457248928880052CE6B /* TwitterAPIAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPIAppUITests.swift; sourceTree = "<group>"; };
 		D995A459248928880052CE6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D995A46C248929CF0052CE6B /* HTTPRequestMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethods.swift; sourceTree = "<group>"; };
+		D995A46D248929CF0052CE6B /* APICallBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICallBuilder.swift; sourceTree = "<group>"; };
+		D995A46E248929CF0052CE6B /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		D995A472248929F00052CE6B /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		D995A473248929F10052CE6B /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		D995A474248929F10052CE6B /* LocationUpdateModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdateModes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +156,9 @@
 		D995A466248928A70052CE6B /* API */ = {
 			isa = PBXGroup;
 			children = (
+				D995A46E248929CF0052CE6B /* APICall.swift */,
+				D995A46D248929CF0052CE6B /* APICallBuilder.swift */,
+				D995A46C248929CF0052CE6B /* HTTPRequestMethods.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -151,6 +166,9 @@
 		D995A467248928B00052CE6B /* LocationService */ = {
 			isa = PBXGroup;
 			children = (
+				D995A472248929F00052CE6B /* Location.swift */,
+				D995A473248929F10052CE6B /* LocationService.swift */,
+				D995A474248929F10052CE6B /* LocationUpdateModes.swift */,
 			);
 			path = LocationService;
 			sourceTree = "<group>";
@@ -286,9 +304,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D995A477248929F10052CE6B /* LocationUpdateModes.swift in Sources */,
 				D995A43D248928840052CE6B /* TwitterAPIApp.xcdatamodeld in Sources */,
 				D995A437248928840052CE6B /* ViewController.swift in Sources */,
+				D995A475248929F10052CE6B /* Location.swift in Sources */,
+				D995A46F248929CF0052CE6B /* HTTPRequestMethods.swift in Sources */,
 				D995A433248928840052CE6B /* AppDelegate.swift in Sources */,
+				D995A470248929CF0052CE6B /* APICallBuilder.swift in Sources */,
+				D995A471248929CF0052CE6B /* APICall.swift in Sources */,
+				D995A476248929F10052CE6B /* LocationService.swift in Sources */,
 				D995A435248928840052CE6B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
