@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D9805B4624ACE90A004B6F3A /* TwitterAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */; };
+		D9805B4824ACEFB0004B6F3A /* TweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9805B4724ACEFB0004B6F3A /* TweetsTableViewController.swift */; };
 		D983D43F24ACCBB900EA176F /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D983D43E24ACCBB900EA176F /* TwitterAPI.swift */; };
 		D983D44124ACCD6600EA176F /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D983D44024ACCD6600EA176F /* Tweet.swift */; };
 		D995A433248928840052CE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A432248928840052CE6B /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TwitterAuthorizationService.swift; path = ../TwitterAuthorizationService.swift; sourceTree = "<group>"; };
+		D9805B4724ACEFB0004B6F3A /* TweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsTableViewController.swift; sourceTree = "<group>"; };
 		D983D43E24ACCBB900EA176F /* TwitterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
 		D983D44024ACCD6600EA176F /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		D995A42F248928840052CE6B /* TwitterAPIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				D983D43E24ACCBB900EA176F /* TwitterAPI.swift */,
 				D983D44024ACCD6600EA176F /* Tweet.swift */,
 				D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */,
+				D9805B4724ACEFB0004B6F3A /* TweetsTableViewController.swift */,
 			);
 			path = TwitterAPIApp;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D995A477248929F10052CE6B /* LocationUpdateModes.swift in Sources */,
+				D9805B4824ACEFB0004B6F3A /* TweetsTableViewController.swift in Sources */,
 				D983D43F24ACCBB900EA176F /* TwitterAPI.swift in Sources */,
 				D995A43D248928840052CE6B /* TwitterAPIApp.xcdatamodeld in Sources */,
 				D983D44124ACCD6600EA176F /* Tweet.swift in Sources */,
