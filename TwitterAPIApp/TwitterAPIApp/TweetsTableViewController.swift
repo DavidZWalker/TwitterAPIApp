@@ -15,7 +15,7 @@ class TweetsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TwitterAPI.shared.findTweetsForCurrentLocation()
+        TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: { _ in })
         
         // Do any additional setup after loading the view.
     }

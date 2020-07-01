@@ -8,18 +8,19 @@
 
 import Foundation
 
-class TwitterAPI {
-    static let shared = TwitterAPI()
+public class TwitterAPI {
+    public static let shared = TwitterAPI()
     private let searchBaseUrl = "https://api.twitter.com/1.1/search/tweets.json"
     private let authService = TwitterAuthorizationService.shared
     private var locationService = LocationService.shared
     private let jsonParser = JsonDataParser.shared
-    var isAuthorized = false
     private var bearerToken : String = ""
-    var searchRadius = 10
-    var resultType = "recent"
-    var maxTweetCount = 50
-    var foundTweets = [Tweet]()
+    private var authorizationStatus : AuthorizationStatus = .NotAuthorized
+    private var searchRequestCompletionCallback : ([Tweet]) -> Void = { _ in }
+    public var searchRadius = 100
+    public var resultType = "recemt"
+    public var maxTweetCount = 5
+    public var foundTweets = [Tweet]()
     
     private let paramName_query = "q"
     private let paramName_location = "geocode"
@@ -28,28 +29,36 @@ class TwitterAPI {
     
     private init() {
         locationService.setUpdateMode(mode: .OneTime)
-        authorize()
     }
     
-    func findTweetsForCurrentLocation() {
-        if isAuthorized {
-            locationService.locationUpdateCallback = loadTweets
-            locationService.updateLocation()
+    public func findTweetsForCurrentLocation(completionHandler: @escaping ([Tweet]) -> Void) {
+        self.searchRequestCompletionCallback = completionHandler
+        if authorizationStatus != .Authorized {
+            authorize()
         }
         else {
-            print ("App is not authorized. Please wait for access to be granted...")
+            updateLocation()
         }
     }
     
     private func authorize() {
-        authService.authorizationCallback = authorizationCallback
+        authorizationStatus = .Authorizing
+        authService.generalAuthCallback = authorizationCallback
         authService.authorize()
     }
     
     private func authorizationCallback(bearerToken: String) {
         print("App authorized. Access to Twitter API granted.")
-        isAuthorized = true
+        self.authorizationStatus = .Authorized
         self.bearerToken = bearerToken
+        
+        // once authorized, location service can be used for the api call
+        updateLocation()
+    }
+    
+    private func updateLocation() {
+        locationService.locationUpdateCallback = loadTweets
+        locationService.updateLocation()
     }
     
     private func loadTweets(forLocation : Location) {
@@ -57,7 +66,7 @@ class TwitterAPI {
             + ","
             + String(forLocation.longitude)
             + ","
-            + String(searchRadius)
+            + String(searchRadius) + "km"
         let searchCall = createSearchApiCall(forLocationString: locationString)
         searchCall.execute()
     }
@@ -69,6 +78,7 @@ class TwitterAPI {
             .addQueryParameter(paramName: paramName_location, paramValue: forLocationString)
             .addQueryParameter(paramName: paramName_resultType, paramValue: resultType)
             .addQueryParameter(paramName: paramName_maxTweetCount, paramValue: String(maxTweetCount))
+            .addHeaderFieldValue(headerField: "Authorization", value: "Bearer " + self.bearerToken)
             .onDataReceived(dataHandler: onTwitterApiDataReceived)
             .build()
     }
@@ -76,10 +86,19 @@ class TwitterAPI {
     private func onTwitterApiDataReceived(data : Data?) -> Void {
         let json = jsonParser.getJsonDictionary(fromData: data!)
         
-        print(json)
+        // print(json)
             
-        if (json["statuses"] != nil) {
-            print(json)
-        }
+        let tweets = getTweetsFromJson(jsonObj: json["statuses"] as! [[String:Any]])
+        
+        searchRequestCompletionCallback(tweets)
+    }
+    
+    private func getTweetsFromJson(jsonObj: [[String:Any]]) -> [Tweet] {
+        print(jsonObj)
+        var tweets = [Tweet]()
+        
+        // TODO ------
+        
+        return tweets
     }
 }

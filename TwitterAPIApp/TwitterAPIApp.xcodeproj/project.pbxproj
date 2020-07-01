@@ -10,6 +10,7 @@
 		D9805B4624ACE90A004B6F3A /* TwitterAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */; };
 		D9805B4824ACEFB0004B6F3A /* TweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9805B4724ACEFB0004B6F3A /* TweetsTableViewController.swift */; };
 		D9805B4B24AD08D8004B6F3A /* JsonDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9805B4A24AD08D8004B6F3A /* JsonDataParser.swift */; };
+		D9805B4E24AD0D44004B6F3A /* AuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9805B4D24AD0D44004B6F3A /* AuthorizationStatus.swift */; };
 		D983D43F24ACCBB900EA176F /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D983D43E24ACCBB900EA176F /* TwitterAPI.swift */; };
 		D983D44124ACCD6600EA176F /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D983D44024ACCD6600EA176F /* Tweet.swift */; };
 		D995A433248928840052CE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D995A432248928840052CE6B /* AppDelegate.swift */; };
@@ -47,9 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TwitterAuthorizationService.swift; path = ../TwitterAuthorizationService.swift; sourceTree = "<group>"; };
+		D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAuthorizationService.swift; sourceTree = "<group>"; };
 		D9805B4724ACEFB0004B6F3A /* TweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsTableViewController.swift; sourceTree = "<group>"; };
 		D9805B4A24AD08D8004B6F3A /* JsonDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataParser.swift; sourceTree = "<group>"; };
+		D9805B4D24AD0D44004B6F3A /* AuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationStatus.swift; sourceTree = "<group>"; };
 		D983D43E24ACCBB900EA176F /* TwitterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
 		D983D44024ACCD6600EA176F /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		D995A42F248928840052CE6B /* TwitterAPIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,10 @@
 		D9805B4C24AD0B93004B6F3A /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				D983D43E24ACCBB900EA176F /* TwitterAPI.swift */,
+				D983D44024ACCD6600EA176F /* Tweet.swift */,
+				D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */,
+				D9805B4D24AD0D44004B6F3A /* AuthorizationStatus.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -143,15 +149,12 @@
 				D995A432248928840052CE6B /* AppDelegate.swift */,
 				D995A434248928840052CE6B /* SceneDelegate.swift */,
 				D995A436248928840052CE6B /* ViewController.swift */,
+				D9805B4724ACEFB0004B6F3A /* TweetsTableViewController.swift */,
 				D995A438248928840052CE6B /* Main.storyboard */,
 				D995A43E248928870052CE6B /* Assets.xcassets */,
 				D995A440248928870052CE6B /* LaunchScreen.storyboard */,
 				D995A443248928870052CE6B /* Info.plist */,
 				D995A43B248928840052CE6B /* TwitterAPIApp.xcdatamodeld */,
-				D983D43E24ACCBB900EA176F /* TwitterAPI.swift */,
-				D983D44024ACCD6600EA176F /* Tweet.swift */,
-				D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */,
-				D9805B4724ACEFB0004B6F3A /* TweetsTableViewController.swift */,
 			);
 			path = TwitterAPIApp;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				D995A437248928840052CE6B /* ViewController.swift in Sources */,
 				D995A475248929F10052CE6B /* Location.swift in Sources */,
 				D995A46F248929CF0052CE6B /* HTTPRequestMethods.swift in Sources */,
+				D9805B4E24AD0D44004B6F3A /* AuthorizationStatus.swift in Sources */,
 				D995A433248928840052CE6B /* AppDelegate.swift in Sources */,
 				D995A470248929CF0052CE6B /* APICallBuilder.swift in Sources */,
 				D9805B4624ACE90A004B6F3A /* TwitterAuthorizationService.swift in Sources */,

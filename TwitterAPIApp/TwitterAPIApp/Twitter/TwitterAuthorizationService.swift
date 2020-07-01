@@ -13,7 +13,8 @@ class TwitterAuthorizationService {
     private let consumerKey = "0vjJTcyFFTOkbTxy3l7c7rVjj"
     private let consumerSecret = "uCHT6cNsK9VTWqBCX6Wrekse0wcLNBLP1kd6gGG3QkEZCMxwpI"
     private let authUrl = "https://api.twitter.com/oauth2/token"
-    var authorizationCallback : (String) -> Void = { _ in }
+    var generalAuthCallback : (String) -> Void = { _ in }
+    var userDefinedAuthCallback : (String) -> Void = { _ in }
     
     private init() {
     }
@@ -48,7 +49,7 @@ class TwitterAuthorizationService {
         let json = JsonDataParser.shared.getJsonDictionary(fromData: data!)
             
         if let token = json["access_token"] as? String {
-            self.authorizationCallback(token)
+            self.generalAuthCallback(token)
         }
             
         print(json)

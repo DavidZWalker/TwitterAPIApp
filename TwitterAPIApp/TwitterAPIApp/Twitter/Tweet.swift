@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Tweet {
-    var content : String
-    var author : String
-    var replies : [Tweet]
-    var location : Location?
-    var retweetCount : Int
-    var likeCount : Int
+public class Tweet {
+    public var content : String
+    public var author : String
+    public var replies : [Tweet]
+    public var location : Location?
+    public var retweetCount : Int
+    public var likeCount : Int
     
-    init() {
+    public init() {
         content = ""
         author = ""
         replies = []
