@@ -11,8 +11,10 @@ import Foundation
 class TwitterAPI {
     static let shared = TwitterAPI()
     private let searchBaseUrl = "https://api.twitter.com/1.1/search/tweets.json"
-    private let authorizationBaseUrl = "https://api.twitter.com/oauth2/token"
-    private var locationService : LocationService
+    private let authService = TwitterAuthorizationService.shared
+    private var locationService = LocationService.shared
+    var isAuthorized = false
+    private var bearerToken : String = ""
     var searchRadius = 10
     var resultType = "recent"
     var maxTweetCount = 50
@@ -24,32 +26,29 @@ class TwitterAPI {
     private let paramName_maxTweetCount = "count"
     
     private init() {
-        locationService = LocationService.shared
         locationService.setUpdateMode(mode: .OneTime)
-        locationService.locationUpdateCallback = locationUpdateCallback
         authorize()
     }
     
     func findTweetsForCurrentLocation() {
-        locationService.updateLocation()
+        if isAuthorized {
+            locationService.locationUpdateCallback = locationUpdateCallback
+            locationService.updateLocation()
+        }
+        else {
+            print ("App is not authorized. Please wait for access to be granted...")
+        }
     }
     
     private func authorize() {
-        APICallBuilder().baseUrl(url: authorizationBaseUrl).addQueryParameter(paramName: "grant_type", paramValue: "client_credentials").setRequestMethod(requestMethod: .POST).onDataReceived(
-            dataHandler: {
-                data in
-                do {
-                    guard let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] else {
-                        print("Error")
-                        return
-                    }
-                    
-                    print(json)
-                }
-                catch {
-                    
-                }
-            }).build().execute()
+        authService.authorizationCallback = authorizationCallback
+        authService.authorize()
+    }
+    
+    private func authorizationCallback(bearerToken: String) {
+        print("App authorized. Access to Twitter API granted.")
+        isAuthorized = true
+        self.bearerToken = bearerToken
     }
     
     private func locationUpdateCallback(location : Location) {

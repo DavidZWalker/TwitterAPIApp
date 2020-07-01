@@ -12,13 +12,17 @@ public class APICallBuilder {
     private var baseUrl : String
     private var requestMethod : HTTPRequestMethods
     private var queryParameters : [String:String]
+    private var requestValues : [String:String]
+    private var httpBody : String
     private var errorHandler : (Error?) -> Void = { _ in }
     private var responseHandler : (URLResponse?) -> Void = { _ in }
     private var dataHandler : (Data?) -> Void = { _ in }
     
     public init() {
         baseUrl = ""
-        queryParameters = [String:String]()
+        httpBody = ""
+        queryParameters = [:]
+        requestValues = [:]
         requestMethod = .GET
     }
     
@@ -52,6 +56,16 @@ public class APICallBuilder {
         return self
     }
     
+    public func addHeaderFieldValue(headerField: String, value: String) -> APICallBuilder {
+        self.requestValues[headerField] = value
+        return self
+    }
+    
+    public func httpBody(body: String) -> APICallBuilder {
+        self.httpBody = body
+        return self
+    }
+    
     public func build() -> APICall {
         
         // build url string and completion handler for the api call
@@ -63,6 +77,15 @@ public class APICallBuilder {
         var urlReq = URLRequest(url: url)
         urlReq.httpMethod = requestMethod == .GET ? "GET" : "POST"
         
+        // add additional request values to the request header
+        for item in requestValues {
+            urlReq.addValue(item.value, forHTTPHeaderField: item.key)
+        }
+        
+        // add body to the http request
+        if httpBody != "" {
+            urlReq.httpBody = httpBody.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        }
         
         // create and return APICall
         return APICall(endpoint: urlReq, completionHandler: requestCompletionHandler)

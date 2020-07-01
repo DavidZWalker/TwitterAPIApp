@@ -15,6 +15,8 @@ class TweetsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        TwitterAPI.shared.findTweetsForCurrentLocation()
+        
         // Do any additional setup after loading the view.
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
