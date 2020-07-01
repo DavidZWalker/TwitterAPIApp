@@ -15,6 +15,7 @@ class LocationService : NSObject, CLLocationManagerDelegate {
     private let defaultAccuracy = 100
     private var lastLocation = CLLocation()
     private(set) var updateMode = LocationUpdateModes.OneTime
+    var locationUpdateCallback : (Location) -> Void = { _ in }
     
     private override init() {
         super.init()
@@ -25,12 +26,10 @@ class LocationService : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    public func getLocation() -> Location {
+    public func updateLocation() {
         if (updateMode == .OneTime) {
             locationManager.requestLocation()
         }
-        
-        return Location(fromData: lastLocation)
     }
     
     public func setUpdateMode(mode: LocationUpdateModes) {
@@ -49,6 +48,8 @@ class LocationService : NSObject, CLLocationManagerDelegate {
         if let location = locations.first {
             lastLocation = location
         }
+        
+        locationUpdateCallback(Location(fromData: lastLocation))
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

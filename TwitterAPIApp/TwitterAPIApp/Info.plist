@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This app uses your location to results from Twitter. Please allow access to your location.</string>
+	<string>This app uses your location to get results from Twitter. Please allow access to your location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app uses your location to results from Twitter. Please allow access to your location.</string>
+	<string>This app uses your location to get results from Twitter. Please allow access to your location.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
