@@ -45,20 +45,12 @@ class TwitterAuthorizationService {
     }
     
     private func onAuthorizationDataReceived(data: Data?) {
-        do {
-            guard let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] else {
-                print("Error")
-                return
-            }
+        let json = JsonDataParser.shared.getJsonDictionary(fromData: data!)
             
-            if let token = json["access_token"] as? String {
-                self.authorizationCallback(token)
-            }
-            
-            print(json)
+        if let token = json["access_token"] as? String {
+            self.authorizationCallback(token)
         }
-        catch {
             
-        }
+        print(json)
     }
 }

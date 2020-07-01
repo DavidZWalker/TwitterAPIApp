@@ -13,6 +13,7 @@ class TwitterAPI {
     private let searchBaseUrl = "https://api.twitter.com/1.1/search/tweets.json"
     private let authService = TwitterAuthorizationService.shared
     private var locationService = LocationService.shared
+    private let jsonParser = JsonDataParser.shared
     var isAuthorized = false
     private var bearerToken : String = ""
     var searchRadius = 10
@@ -32,7 +33,7 @@ class TwitterAPI {
     
     func findTweetsForCurrentLocation() {
         if isAuthorized {
-            locationService.locationUpdateCallback = locationUpdateCallback
+            locationService.locationUpdateCallback = loadTweets
             locationService.updateLocation()
         }
         else {
@@ -51,10 +52,10 @@ class TwitterAPI {
         self.bearerToken = bearerToken
     }
     
-    private func locationUpdateCallback(location : Location) {
-        let locationString = String(location.latitude)
+    private func loadTweets(forLocation : Location) {
+        let locationString = String(forLocation.latitude)
             + ","
-            + String(location.longitude)
+            + String(forLocation.longitude)
             + ","
             + String(searchRadius)
         let searchCall = createSearchApiCall(forLocationString: locationString)
@@ -73,21 +74,12 @@ class TwitterAPI {
     }
     
     private func onTwitterApiDataReceived(data : Data?) -> Void {
-        do {
-            guard let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] else {
-                print("Error")
-                return
-            }
-            
-            print(json)
-            
-            if (json["statuses"] != nil) {
-                print(json)
-            }
-        }
-        catch {
-            
-        }
+        let json = jsonParser.getJsonDictionary(fromData: data!)
         
+        print(json)
+            
+        if (json["statuses"] != nil) {
+            print(json)
+        }
     }
 }
