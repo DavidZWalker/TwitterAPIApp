@@ -18,7 +18,7 @@ public class TwitterAPI {
     private var authorizationStatus : AuthorizationStatus = .NotAuthorized
     private var searchRequestCompletionCallback : ([Tweet]) -> Void = { _ in }
     public var searchRadius = 100
-    public var resultType = "recemt"
+    public var resultType = "recent"
     public var maxTweetCount = 5
     public var foundTweets = [Tweet]()
     
@@ -95,7 +95,7 @@ public class TwitterAPI {
     
     private func getTweetsFromJson(jsonObj: [[String:Any]]) -> [Tweet] {
         print(jsonObj)
-        var tweets = [Tweet]()
+        let tweets = [Tweet]()
         
         // TODO ------
         
