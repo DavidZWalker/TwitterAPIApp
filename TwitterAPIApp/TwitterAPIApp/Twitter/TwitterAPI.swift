@@ -80,6 +80,10 @@ public class TwitterAPI {
             .addQueryParameter(paramName: paramName_maxTweetCount, paramValue: String(maxTweetCount))
             .addHeaderFieldValue(headerField: "Authorization", value: "Bearer " + self.bearerToken)
             .onDataReceived(dataHandler: onTwitterApiDataReceived)
+            .onError(errorHandler: {
+                error in
+                print("Error lol")
+            })
             .build()
     }
     
@@ -97,21 +101,29 @@ public class TwitterAPI {
     private func getTweetsFromJson(jsonObj: [[String:Any]]) -> [Tweet] {
         print("JSON OBJECT:")
         print(jsonObj)
-        let tweets = [Tweet]()
+        var tweets = [Tweet]()
         
         // TODO ------
         for status in jsonObj {
             let tweet = Tweet()
+            let user = TwitterUser()
             tweet.retweetCount = status["retweet_count"] as! Int
             tweet.likeCount = status["favorite_count"] as! Int
             tweet.content = status["text"] as! String
-            tweet.author = (status["user"] as! [String:Any])["name"] as! String
+            user.username = (status["user"] as! [String:Any])["name"] as! String
+            user.screenName = (status["user"] as! [String:Any])["screen_name"] as! String
+            tweet.locationString = (status["user"] as! [String:Any])["location"] as! String
+            tweet.user = user
+            tweets.append(tweet)
+            
             print("----------------------------------------")
             print("TWEET:")
             print("Text: " + tweet.content)
             print("Retweets: " + String(tweet.retweetCount))
             print("Likes: " + String(tweet.likeCount))
-            print("Author: " + tweet.author)
+            print("Author: " + user.username)
+            print("ScreenName: " + user.screenName)
+            print("Location: " + tweet.locationString)
         }
         
         return tweets

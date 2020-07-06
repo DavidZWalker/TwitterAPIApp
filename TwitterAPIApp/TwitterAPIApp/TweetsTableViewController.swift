@@ -29,6 +29,7 @@ class TweetsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TODO: refactor this method call: completion handler contains tweet array
         TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: { _ in })
         
         // Do any additional setup after loading the view.
@@ -43,7 +44,7 @@ class TweetsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetTableViewCell
         //cell.tweetProfilePicture = tweets[indexPath.row]
-        cell.tweetNickname.text = tweets[indexPath.row].author
+        cell.tweetNickname.text = tweets[indexPath.row].user?.username
         //cell.tweetUsername.text = tweets[indexPath.row].author
         cell.tweetText.text = tweets[indexPath.row].content
         cell.tweetCommentCount.text = String(tweets[indexPath.row].replies.count)
