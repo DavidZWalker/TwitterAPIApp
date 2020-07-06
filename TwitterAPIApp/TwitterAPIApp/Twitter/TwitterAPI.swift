@@ -19,7 +19,7 @@ public class TwitterAPI {
     private var searchRequestCompletionCallback : ([Tweet]) -> Void = { _ in }
     public var searchRadius = 100
     public var resultType = "recent"
-    public var maxTweetCount = 5
+    public var maxTweetCount = 10
     public var foundTweets = [Tweet]()
     
     private let paramName_query = "q"
@@ -86,7 +86,8 @@ public class TwitterAPI {
     private func onTwitterApiDataReceived(data : Data?) -> Void {
         let json = jsonParser.getJsonDictionary(fromData: data!)
         
-        // print(json)
+        print("FULL JSON:")
+        print(json)
             
         let tweets = getTweetsFromJson(jsonObj: json["statuses"] as! [[String:Any]])
         
@@ -94,10 +95,24 @@ public class TwitterAPI {
     }
     
     private func getTweetsFromJson(jsonObj: [[String:Any]]) -> [Tweet] {
+        print("JSON OBJECT:")
         print(jsonObj)
         let tweets = [Tweet]()
         
         // TODO ------
+        for status in jsonObj {
+            let tweet = Tweet()
+            tweet.retweetCount = status["retweet_count"] as! Int
+            tweet.likeCount = status["favorite_count"] as! Int
+            tweet.content = status["text"] as! String
+            tweet.author = (status["user"] as! [String:Any])["name"] as! String
+            print("----------------------------------------")
+            print("TWEET:")
+            print("Text: " + tweet.content)
+            print("Retweets: " + String(tweet.retweetCount))
+            print("Likes: " + String(tweet.likeCount))
+            print("Author: " + tweet.author)
+        }
         
         return tweets
     }
