@@ -11,16 +11,14 @@ import Foundation
 public class Tweet {
     public var content : String
     public var user : TwitterUser?
-    public var replies : [Tweet]
-    public var location : Location?
     public var locationString : String
     public var retweetCount : Int
     public var likeCount : Int
+    public var date : Date?
     
     public init() {
         content = ""
         locationString = ""
-        replies = []
         retweetCount = 0
         likeCount = 0
     }

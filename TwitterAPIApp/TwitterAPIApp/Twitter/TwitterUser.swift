@@ -11,9 +11,12 @@ import Foundation
 public class TwitterUser {
     public var username : String
     public var screenName : String
+    public var description : String
+    public var profileImageUrl : URL?
     
     public init() {
         username = ""
         screenName = ""
+        description = ""
     }
 }
