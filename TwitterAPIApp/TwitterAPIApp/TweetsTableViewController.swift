@@ -13,7 +13,6 @@ class TweetTableViewCell: UITableViewCell{
     @IBOutlet weak var tweetNickname: UILabel!
     @IBOutlet weak var tweetUsername: UILabel!
     @IBOutlet weak var tweetText: UILabel!
-    @IBOutlet weak var tweetCommentCount: UILabel!
     @IBOutlet weak var tweetRetweetCount: UILabel!
     @IBOutlet weak var tweetLikeCount: UILabel!
     @IBOutlet weak var tweetLocation: UILabel!
@@ -43,14 +42,16 @@ class TweetsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetTableViewCell
-        //cell.tweetProfilePicture = tweets[indexPath.row]
+        
         cell.tweetNickname.text = tweets[indexPath.row].user?.username
-        //cell.tweetUsername.text = tweets[indexPath.row].author
+        cell.tweetUsername.text =
+            tweets[indexPath.row].user?.screenName
         cell.tweetText.text = tweets[indexPath.row].content
-        cell.tweetCommentCount.text = String(tweets[indexPath.row].replies.count)
         cell.tweetRetweetCount.text = String(tweets[indexPath.row].retweetCount)
         cell.tweetLikeCount.text = String(tweets[indexPath.row].likeCount)
-        //cell.tweetLocation.text = String(tweets[indexPath.row].location)
+        cell.tweetLocation.text = tweets[indexPath.row].locationString
+        
+        //LOAD IMAGE HERE
         
         return cell
     }
