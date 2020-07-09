@@ -118,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				D983D43E24ACCBB900EA176F /* TwitterAPI.swift */,
-				1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */,
 				D983D44024ACCD6600EA176F /* Tweet.swift */,
 				D9805B4524ACE90A004B6F3A /* TwitterAuthorizationService.swift */,
 				D9805B4D24AD0D44004B6F3A /* AuthorizationStatus.swift */,
@@ -159,6 +158,7 @@
 				D995A438248928840052CE6B /* Main.storyboard */,
 				D995A43E248928870052CE6B /* Assets.xcassets */,
 				D995A440248928870052CE6B /* LaunchScreen.storyboard */,
+				1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */,
 				D995A443248928870052CE6B /* Info.plist */,
 				D995A43B248928840052CE6B /* TwitterAPIApp.xcdatamodeld */,
 			);

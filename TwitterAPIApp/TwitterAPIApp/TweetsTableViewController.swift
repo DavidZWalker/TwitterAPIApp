@@ -61,5 +61,12 @@ class TweetsTableViewController: UITableViewController {
         return cell
     }
     
+    func addLoadingIndicator(){
+        let child = LoadingIndicatorViewController()
+    }
+    func removeLoadingIndicator(){
+        
+    }
+    
     
 }
