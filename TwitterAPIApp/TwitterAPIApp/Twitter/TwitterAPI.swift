@@ -119,7 +119,7 @@ public class TwitterAPI {
             user.profileImageUrl = URL(string: (status["user"] as! [String:Any])["profile_image_url_https"] as! String)
             tweet.locationString = (status["user"] as! [String:Any])["location"] as! String
             let datestr = status["created_at"] as! String
-            tweet.date = dateFormatter.date(from: datestr)
+            // tweet.date = dateFormatter.date(from: datestr)
             tweet.user = user
             tweets.append(tweet)
             
@@ -133,7 +133,7 @@ public class TwitterAPI {
             print("Location: " + tweet.locationString)
             print("ProfileImageUrl: " + user.profileImageUrl!.absoluteString)
             print("UserDescr: " + user.description)
-            print("TweetDate: " + dateFormatter.string(from: tweet.date!))
+            // print("TweetDate: " + dateFormatter.string(from: tweet.date!))
         }
         
         return tweets

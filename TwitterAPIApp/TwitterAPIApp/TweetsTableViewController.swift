@@ -34,13 +34,15 @@ class TweetsTableViewController: UITableViewController {
         
         // TODO: refactor this method call: completion handler contains tweet array
         toggleLoadingIndicator()
-        TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler:refreshTableview(tweets:))
+        TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: refreshTableview)
         
     }
     func refreshTableview(tweets: [Tweet]){
         self.tweets = tweets
-        self.tableView.reloadData()
-        toggleLoadingIndicator()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.toggleLoadingIndicator()
+        }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
