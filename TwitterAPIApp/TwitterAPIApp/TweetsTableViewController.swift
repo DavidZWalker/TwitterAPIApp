@@ -31,12 +31,14 @@ class TweetsTableViewController: UITableViewController {
         tableView.delegate = self
         
         // TODO: refactor this method call: completion handler contains tweet array
+        toggleLoadingIndicator()
         TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler:refreshTableview(tweets:))
         
     }
     func refreshTableview(tweets: [Tweet]){
         self.tweets = tweets
         self.tableView.reloadData()
+        toggleLoadingIndicator()
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -61,12 +63,27 @@ class TweetsTableViewController: UITableViewController {
         return cell
     }
     
-    func addLoadingIndicator(){
-        let child = LoadingIndicatorViewController()
-    }
-    func removeLoadingIndicator(){
+    func toggleLoadingIndicator(){
+        let loadingIndicator = LoadingIndicatorViewController()
+        var present = false
+        
+        if(!present){
+            //add the Indicator to the View
+            addChild(loadingIndicator)
+            loadingIndicator.view.frame = view.frame
+            view.addSubview(loadingIndicator.view)
+            loadingIndicator.didMove(toParent: self)
+        }else{
+            loadingIndicator.willMove(toParent: nil)
+            loadingIndicator.view.removeFromSuperview()
+            loadingIndicator.removeFromParent()
+            
+        }
+        
         
     }
+    
+
     
     
 }
