@@ -27,11 +27,16 @@ class TweetsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
         
         // TODO: refactor this method call: completion handler contains tweet array
-        TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: { _ in })
+        TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler:refreshTableview(tweets:))
         
-        // Do any additional setup after loading the view.
+    }
+    func refreshTableview(tweets: [Tweet]){
+        self.tweets = tweets
+        self.tableView.reloadData()
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
