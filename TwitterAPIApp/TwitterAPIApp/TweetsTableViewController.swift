@@ -24,6 +24,8 @@ class TweetTableViewCell: UITableViewCell{
 class TweetsTableViewController: UITableViewController {
     
     var tweets = [Tweet]()
+    var loadingIndicatorVisible = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,16 +60,16 @@ class TweetsTableViewController: UITableViewController {
         cell.tweetLikeCount.text = String(tweets[indexPath.row].likeCount)
         cell.tweetLocation.text = tweets[indexPath.row].locationString
         
-        //LOAD IMAGE HERE
+        cell.tweetProfilePicture.load(url: (tweets[indexPath.row].user?.profileImageUrl)!)
+        
         
         return cell
     }
     
     func toggleLoadingIndicator(){
         let loadingIndicator = LoadingIndicatorViewController()
-        var present = false
         
-        if(!present){
+        if(!loadingIndicatorVisible){
             //add the Indicator to the View
             addChild(loadingIndicator)
             loadingIndicator.view.frame = view.frame
@@ -82,8 +84,6 @@ class TweetsTableViewController: UITableViewController {
         
         
     }
-    
 
-    
     
 }
