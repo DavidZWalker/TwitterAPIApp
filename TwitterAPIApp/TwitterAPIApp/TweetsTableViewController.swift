@@ -31,7 +31,8 @@ class TweetsTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        // TODO: refactor this method call: completion handler contains tweet array
+        configureRefreshControl()
+        
         showLoadingScreeen(show: true)
         TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: refreshTableview)
         
@@ -41,6 +42,23 @@ class TweetsTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.showLoadingScreeen(show: false)
+        }
+    }
+    
+    func configureRefreshControl () {
+        // Adding the refresh control to tableview
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action:
+            #selector(handleRefreshControl),
+                                                 for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        //reloading content
+        TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: refreshTableview)
+        // Dismiss the refresh control.
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
         }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,6 +102,6 @@ class TweetsTableViewController: UITableViewController {
         
         
     }
-
+    
     
 }
