@@ -23,6 +23,7 @@ class TweetTableViewCell: UITableViewCell{
 
 class TweetsTableViewController: UITableViewController {
     
+    @IBOutlet weak var navigatonBar: UINavigationItem!
     var tweets = [Tweet]()
     let loadingIndicator = LoadingIndicatorViewController()
     
@@ -38,6 +39,10 @@ class TweetsTableViewController: UITableViewController {
         
     }
     func refreshTableview(tweets: [Tweet]){
+        
+        //refresh Location here
+        
+        
         self.tweets = tweets
         DispatchQueue.main.async {
             self.tableView.reloadData()

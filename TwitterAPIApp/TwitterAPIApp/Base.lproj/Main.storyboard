@@ -34,7 +34,7 @@
             </objects>
             <point key="canvasLocation" x="-487" y="327"/>
         </scene>
-        <!--Tweets Table View Controller-->
+        <!--Trending Tweets-->
         <scene sceneID="zU3-z5-pbG">
             <objects>
                 <tableViewController id="IVC-VF-kyr" customClass="TweetsTableViewController" customModule="TwitterAPIApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,7 +133,10 @@
                             <outlet property="delegate" destination="IVC-VF-kyr" id="fnc-YW-PkV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vTJ-kz-59o"/>
+                    <navigationItem key="navigationItem" title="Trending Tweets" id="vTJ-kz-59o"/>
+                    <connections>
+                        <outlet property="navigatonBar" destination="vTJ-kz-59o" id="Mor-LA-Ys1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGB-JB-c60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
