@@ -24,8 +24,7 @@ class TweetTableViewCell: UITableViewCell{
 class TweetsTableViewController: UITableViewController {
     
     var tweets = [Tweet]()
-    var loadingIndicatorVisible = false
-
+    let loadingIndicator = LoadingIndicatorViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,7 @@ class TweetsTableViewController: UITableViewController {
         tableView.delegate = self
         
         // TODO: refactor this method call: completion handler contains tweet array
-        toggleLoadingIndicator()
+        showLoadingScreeen(show: true)
         TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: refreshTableview)
         
     }
@@ -41,7 +40,7 @@ class TweetsTableViewController: UITableViewController {
         self.tweets = tweets
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            self.toggleLoadingIndicator()
+            self.showLoadingScreeen(show: false)
         }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,10 +67,9 @@ class TweetsTableViewController: UITableViewController {
         return cell
     }
     
-    func toggleLoadingIndicator(){
-        let loadingIndicator = LoadingIndicatorViewController()
+    func showLoadingScreeen(show: Bool){
         
-        if(!loadingIndicatorVisible){
+        if(show){
             //add the Indicator to the View
             addChild(loadingIndicator)
             loadingIndicator.view.frame = view.frame
