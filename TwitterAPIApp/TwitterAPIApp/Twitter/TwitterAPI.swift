@@ -115,6 +115,9 @@ public class TwitterAPI {
             user.description = (status["user"] as! [String:Any])["description"] as! String
             user.profileImageUrl = URL(string: (status["user"] as! [String:Any])["profile_image_url_https"] as! String)
             tweet.locationString = (status["user"] as! [String:Any])["location"] as! String
+            if tweet.locationString == "" {
+                tweet.locationString = "Unknown"
+            }
             tweet.user = user
             tweets.append(tweet)
         }

@@ -10,7 +10,7 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
     
-    var favorites = [Tweet]()
+    var favorites : [Tweet] = []
     let loadingIndicator = LoadingIndicatorViewController()
     let tweetManager = TweetManager.shared
     
@@ -21,15 +21,8 @@ class FavoritesTableViewController: UITableViewController {
         
         showLoadingScreeen(show: true)
         loadFavorites()
-        
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
     func loadFavorites() {
         favorites = tweetManager.getFavorites()
         tableView.reloadData()
@@ -42,11 +35,12 @@ class FavoritesTableViewController: UITableViewController {
             favorites = tweetManager.getFavorites()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         loadFavorites()
     }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -62,16 +56,17 @@ class FavoritesTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return favorites.count
     }
+    
     func showLoadingScreeen(show: Bool){
         
-        if(show){
+        if show {
             //add the Indicator to the View
             addChild(loadingIndicator)
             loadingIndicator.view.frame = view.frame
             view.addSubview(loadingIndicator.view)
             loadingIndicator.didMove(toParent: self)
         }
-        else{
+        else {
             loadingIndicator.willMove(toParent: nil)
             loadingIndicator.view.removeFromSuperview()
             loadingIndicator.removeFromParent()
@@ -88,9 +83,7 @@ class FavoritesTableViewController: UITableViewController {
         cell.tweetRetweetCount.text = String(favorites[indexPath.row].retweetCount)
         cell.tweetLikeCount.text = String(favorites[indexPath.row].likeCount)
         cell.tweetLocation.text = favorites[indexPath.row].locationString
-        
         cell.tweetProfilePicture.load(url: (favorites[indexPath.row].user?.profileImageUrl)!)
-        
         
         return cell
     }
