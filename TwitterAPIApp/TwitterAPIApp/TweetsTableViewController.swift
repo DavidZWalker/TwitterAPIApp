@@ -64,6 +64,17 @@ class TweetsTableViewController: UITableViewController {
             self.tableView.refreshControl?.endRefreshing()
         }
     }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") {_,_,_ in
+            //trying to add new tweet to favs
+            self.tweetManager.addFavorite(tweet: self.tweets[indexPath.row])
+            
+            //TODO ADD FEEDBACK HERE
+        }
+        favoriteAction.backgroundColor = .orange
+        let configuration = UISwipeActionsConfiguration(actions: [favoriteAction])
+        return configuration
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

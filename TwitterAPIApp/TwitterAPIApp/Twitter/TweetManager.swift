@@ -24,6 +24,13 @@ public class TweetManager {
         saveFavorites()
     }
     
+    public func removeFavorite(tweet: Tweet){
+        let index = encodedFavorites.firstIndex(of: tweet.encode())!
+        encodedFavorites.remove(at: index)
+        saveFavorites()
+
+    }
+    
     public func getFavorites() -> [Tweet] {
         guard let loadedFavs = defaults.array(forKey: favoritesDefaultsKey) else {
             return []
