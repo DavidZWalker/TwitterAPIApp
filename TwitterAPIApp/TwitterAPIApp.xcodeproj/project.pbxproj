@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F8688E924BA0F5C00300DA6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8688E824BA0F5C00300DA6 /* Launch Screen.storyboard */; };
+		1F9FDE1A24C4A4970091E0FD /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FDE1924C4A4970091E0FD /* FavoritesTableViewController.swift */; };
 		1FB930F624B742A10070F16B /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */; };
 		1FB930F824B745260070F16B /* TweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB930F724B745260070F16B /* TweetsTableViewController.swift */; };
 		1FB930FA24B74CD50070F16B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB930F924B74CD50070F16B /* Extensions.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		1F8688E824BA0F5C00300DA6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1F9FDE1924C4A4970091E0FD /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
 		1FB930F724B745260070F16B /* TweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsTableViewController.swift; sourceTree = "<group>"; };
 		1FB930F924B74CD50070F16B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				D995A434248928840052CE6B /* SceneDelegate.swift */,
 				D995A436248928840052CE6B /* ViewController.swift */,
 				D995A438248928840052CE6B /* Main.storyboard */,
+				1F9FDE1924C4A4970091E0FD /* FavoritesTableViewController.swift */,
 				1FB930F724B745260070F16B /* TweetsTableViewController.swift */,
 				1FB930F924B74CD50070F16B /* Extensions.swift */,
 				D995A43E248928870052CE6B /* Assets.xcassets */,
@@ -366,6 +369,7 @@
 				D995A437248928840052CE6B /* ViewController.swift in Sources */,
 				D93BD28C24B3D21600A8A1EE /* TwitterUser.swift in Sources */,
 				D995A475248929F10052CE6B /* Location.swift in Sources */,
+				1F9FDE1A24C4A4970091E0FD /* FavoritesTableViewController.swift in Sources */,
 				D995A46F248929CF0052CE6B /* HTTPRequestMethods.swift in Sources */,
 				D9805B4E24AD0D44004B6F3A /* AuthorizationStatus.swift in Sources */,
 				D995A433248928840052CE6B /* AppDelegate.swift in Sources */,

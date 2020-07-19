@@ -6,16 +6,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="FQ7-q9-V3d">
-            <objects>
-                <viewController id="0u1-O0-h8a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="xWc-au-7Ul"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aml-0q-yt2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-488" y="1059"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Feo-Ms-sUs">
             <objects>
@@ -27,7 +17,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="MiN-kA-FAK" kind="relationship" relationship="viewControllers" id="Ygs-w9-1Vc"/>
-                        <segue destination="0u1-O0-h8a" kind="relationship" relationship="viewControllers" id="uso-JW-XPg"/>
+                        <segue destination="QS9-DX-jbD" kind="relationship" relationship="viewControllers" id="lFb-4k-rNy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4o-pS-jKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -142,11 +132,40 @@
             </objects>
             <point key="canvasLocation" x="1592.753623188406" y="326.78571428571428"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="c7d-SR-9pc">
+            <objects>
+                <tableViewController id="fOA-BH-IpL" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zEZ-SY-H6N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ubR-Io-nyV">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ubR-Io-nyV" id="mD8-FN-IY6">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fOA-BH-IpL" id="mLD-av-cqQ"/>
+                            <outlet property="delegate" destination="fOA-BH-IpL" id="uoV-Rk-0su"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="qGS-4H-wOW"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fty-HR-td4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="1029"/>
+        </scene>
         <!--Tweets-->
         <scene sceneID="We4-j0-Onl">
             <objects>
                 <navigationController title="Tweets" automaticallyAdjustsScrollViewInsets="NO" id="MiN-kA-FAK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tweets" id="qY9-6o-LrE"/>
+                    <tabBarItem key="tabBarItem" title="Tweets" image="list.dash" catalog="system" id="qY9-6o-LrE"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Tweets" id="QNt-Ik-3BJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f7N-io-n7R">
@@ -161,6 +180,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgU-Et-x5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="554" y="327"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="Jvh-ET-a1K">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QS9-DX-jbD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="tRL-aC-EP4"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U3g-2h-11H">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fOA-BH-IpL" kind="relationship" relationship="rootViewController" id="Kce-B2-f6B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oAD-xM-Lh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="1029"/>
         </scene>
     </scenes>
     <resources>
@@ -259,7 +298,9 @@ EwIVAh4CIwIpAjECMwI1AjcCOROlE6oTtxO6E8cTzBPUE9cT3BPkAAAAAAAAAgEAAAAAAAAAUgAAAAAA
 AAAAAAAAAAAAE+c
 </mutableData>
         </image>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>
