@@ -23,6 +23,7 @@ class TweetsTableViewController: UITableViewController {
     @IBOutlet weak var navigatonBar: UINavigationItem!
     var tweets = [Tweet]()
     let loadingIndicator = LoadingIndicatorViewController()
+    let tweetManager = TweetManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

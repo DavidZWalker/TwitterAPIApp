@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TwitterUser {
+public class TwitterUser : Codable {
     public var username : String
     public var screenName : String
     public var description : String
