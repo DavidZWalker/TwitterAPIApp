@@ -14,7 +14,6 @@ public class Tweet {
     public var locationString : String
     public var retweetCount : Int
     public var likeCount : Int
-    public var date : Date?
     
     public init() {
         content = ""
@@ -22,4 +21,5 @@ public class Tweet {
         retweetCount = 0
         likeCount = 0
     }
+    
 }

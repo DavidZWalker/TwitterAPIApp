@@ -16,9 +16,6 @@ class TweetTableViewCell: UITableViewCell{
     @IBOutlet weak var tweetRetweetCount: UILabel!
     @IBOutlet weak var tweetLikeCount: UILabel!
     @IBOutlet weak var tweetLocation: UILabel!
-    
-    
-    
 }
 
 class TweetsTableViewController: UITableViewController {
@@ -36,8 +33,8 @@ class TweetsTableViewController: UITableViewController {
         
         showLoadingScreeen(show: true)
         TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: refreshTableview)
-        
     }
+    
     func refreshTableview(tweets: [Tweet]){
         
         //refresh Location here
@@ -54,13 +51,13 @@ class TweetsTableViewController: UITableViewController {
         // Adding the refresh control to tableview
         self.tableView.refreshControl = UIRefreshControl()
         self.tableView.refreshControl?.addTarget(self, action:
-            #selector(handleRefreshControl),
-                                                 for: .valueChanged)
+            #selector(handleRefreshControl), for: .valueChanged)
     }
     
     @objc func handleRefreshControl() {
         //reloading content
         TwitterAPI.shared.findTweetsForCurrentLocation(completionHandler: refreshTableview)
+        
         // Dismiss the refresh control.
         DispatchQueue.main.async {
             self.tableView.refreshControl?.endRefreshing()
@@ -98,15 +95,11 @@ class TweetsTableViewController: UITableViewController {
             loadingIndicator.view.frame = view.frame
             view.addSubview(loadingIndicator.view)
             loadingIndicator.didMove(toParent: self)
-        }else{
+        }
+        else{
             loadingIndicator.willMove(toParent: nil)
             loadingIndicator.view.removeFromSuperview()
             loadingIndicator.removeFromParent()
-            
         }
-        
-        
     }
-    
-    
 }

@@ -101,12 +101,9 @@ public class TwitterAPI {
     private func getTweetsFromJson(jsonObj: [[String:Any]]) -> [Tweet] {
         print("JSON OBJECT:")
         print(jsonObj)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE MMM dd HH:mm:ss ZZZZ yyyy"
-        dateFormatter.locale = Locale(identifier: "de_DE")
         var tweets = [Tweet]()
         
-        // TODO ------
+        // Create the tweet object from the JSON data
         for status in jsonObj {
             let tweet = Tweet()
             let user = TwitterUser()
@@ -118,22 +115,8 @@ public class TwitterAPI {
             user.description = (status["user"] as! [String:Any])["description"] as! String
             user.profileImageUrl = URL(string: (status["user"] as! [String:Any])["profile_image_url_https"] as! String)
             tweet.locationString = (status["user"] as! [String:Any])["location"] as! String
-            let datestr = status["created_at"] as! String
-            // tweet.date = dateFormatter.date(from: datestr)
             tweet.user = user
             tweets.append(tweet)
-            
-            print("----------------------------------------")
-            print("TWEET:")
-            print("Text: " + tweet.content)
-            print("Retweets: " + String(tweet.retweetCount))
-            print("Likes: " + String(tweet.likeCount))
-            print("Author: " + user.username)
-            print("ScreenName: " + user.screenName)
-            print("Location: " + tweet.locationString)
-            print("ProfileImageUrl: " + user.profileImageUrl!.absoluteString)
-            print("UserDescr: " + user.description)
-            // print("TweetDate: " + dateFormatter.string(from: tweet.date!))
         }
         
         return tweets
