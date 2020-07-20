@@ -91,8 +91,7 @@ class TweetsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetTableViewCell
         
         cell.tweetNickname.text = tweets[indexPath.row].user?.username
-        cell.tweetUsername.text =
-            tweets[indexPath.row].user?.screenName
+        cell.tweetUsername.text = "@" + tweets[indexPath.row].user!.screenName
         cell.tweetText.text = tweets[indexPath.row].content
         cell.tweetRetweetCount.text = String(tweets[indexPath.row].retweetCount)
         cell.tweetLikeCount.text = String(tweets[indexPath.row].likeCount)
