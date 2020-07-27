@@ -9,6 +9,12 @@
 import XCTest
 
 class TwitterAPIAppUITests: XCTestCase {
+    let app = XCUIApplication()
+    
+    override func setUp() {
+        continueAfterFailure = false
+        app.launch()
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,15 +28,43 @@ class TwitterAPIAppUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTabbarFavorites(){
+        XCUIApplication().tabBars.buttons["Favorites"].tap()
+        XCTAssertTrue(app.tabBars.buttons["Favorites"].exists)
+                
     }
+    func testTabbarTweets(){
+        
+        let tabBarsQuery = XCUIApplication().tabBars
+        tabBarsQuery.buttons["Favorites"].tap()
+        tabBarsQuery.buttons["Tweets"].tap()
+        XCTAssertTrue(app.tabBars.buttons["Tweets"].exists)
+    }
+    func testFavoriteTweet(){
+        sleep(5)
+        app.tables.cells.element(boundBy: 0).swipeLeft()
+        XCTAssertNoThrow(app.tables.cells.element(boundBy: 0).buttons["trailing0"].tap())
+                
+    }
+    func testDeleteFavoriteExists(){
+        sleep(5)
+        app.tables.cells.element(boundBy: 0).swipeLeft()
+        app.tables.cells.element(boundBy: 0).buttons["trailing0"].tap()
+                
+        XCUIApplication().tabBars.buttons["Favorites"].tap()
+        app.tables.cells.element(boundBy: 0).swipeLeft()
+        app.tables.cells.element(boundBy: 0).buttons["trailing0"].tap()
+        
+    }
+    func testRefreshOnSwipeDown() {
+        sleep(5)
+        app.tables.cells.element(boundBy: 0).swipeDown()
+        sleep(1)
+        app.tables.cells.element(boundBy: 0).swipeLeft()
+        app.tables.cells.element(boundBy: 0).buttons["trailing0"].tap()
+    }
+     
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
