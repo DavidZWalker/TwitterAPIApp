@@ -14,6 +14,9 @@ class TwitterAPIAppUITests: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         app.launch()
+        
+        XCUIApplication().alerts["Allow “TwitterAPIApp” to use your location?"].scrollViews.otherElements.buttons["Allow While Using App"].tap()
+        
     }
 
     override func setUpWithError() throws {
@@ -28,6 +31,11 @@ class TwitterAPIAppUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    func testPopUp(){
+        XCUIApplication().alerts["Allow “TwitterAPIApp” to use your location?"].scrollViews.otherElements.buttons["Allow While Using App"].tap()
+                
+    }
+    
     func testTabbarFavorites(){
         XCUIApplication().tabBars.buttons["Favorites"].tap()
         XCTAssertTrue(app.tabBars.buttons["Favorites"].exists)
