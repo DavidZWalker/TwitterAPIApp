@@ -10,7 +10,7 @@ import Foundation
 
 public class APICall {
     private let urlSession = URLSession.shared
-    private var endpoint : URLRequest
+    private(set) var endpoint : URLRequest
     private var completionHandler : (Data?, URLResponse?, Error?) -> Void = { _, _, _ in }
     
     init(endpoint: URLRequest,

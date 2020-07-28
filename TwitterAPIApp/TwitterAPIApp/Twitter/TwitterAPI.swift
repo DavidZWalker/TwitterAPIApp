@@ -80,27 +80,16 @@ public class TwitterAPI {
             .addQueryParameter(paramName: paramName_maxTweetCount, paramValue: String(maxTweetCount))
             .addHeaderFieldValue(headerField: "Authorization", value: "Bearer " + self.bearerToken)
             .onDataReceived(dataHandler: onTwitterApiDataReceived)
-            .onError(errorHandler: {
-                error in
-                print("Error lol")
-            })
             .build()
     }
     
     private func onTwitterApiDataReceived(data : Data?) -> Void {
         let json = jsonParser.getJsonDictionary(fromData: data!)
-        
-        print("FULL JSON:")
-        print(json)
-            
         let tweets = getTweetsFromJson(jsonObj: json["statuses"] as! [[String:Any]])
-        
         searchRequestCompletionCallback(tweets)
     }
     
     private func getTweetsFromJson(jsonObj: [[String:Any]]) -> [Tweet] {
-        print("JSON OBJECT:")
-        print(jsonObj)
         var tweets = [Tweet]()
         
         // Create the tweet object from the JSON data

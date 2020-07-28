@@ -9,8 +9,8 @@
 import Foundation
 import CoreLocation
 
-class LocationService : NSObject, CLLocationManagerDelegate {
-    static let shared = LocationService()
+public class LocationService : NSObject, CLLocationManagerDelegate {
+    public static let shared = LocationService()
     private let locationManager = CLLocationManager()
     private let defaultAccuracy = 100
     private var lastLocation = CLLocation()
@@ -44,7 +44,7 @@ class LocationService : NSObject, CLLocationManagerDelegate {
     
     // MARK: - Location Manager functions
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             lastLocation = location
         }
@@ -52,7 +52,7 @@ class LocationService : NSObject, CLLocationManagerDelegate {
         locationUpdateCallback(Location(fromData: lastLocation))
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
 }
