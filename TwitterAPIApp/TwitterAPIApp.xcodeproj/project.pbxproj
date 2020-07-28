@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F8688E924BA0F5C00300DA6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8688E824BA0F5C00300DA6 /* Launch Screen.storyboard */; };
 		1F9FDE1A24C4A4970091E0FD /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FDE1924C4A4970091E0FD /* FavoritesTableViewController.swift */; };
 		1F9FDE1C24D029D70091E0FD /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 1F9FDE1B24D029D70091E0FD /* Images */; };
 		1FB930F624B742A10070F16B /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */; };
@@ -55,7 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F8688E824BA0F5C00300DA6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1F9FDE1924C4A4970091E0FD /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		1F9FDE1B24D029D70091E0FD /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */,
 				D995A443248928870052CE6B /* Info.plist */,
 				D9DA068224C0CDEC0016D1F0 /* TwitterAPIApp.xcdatamodel */,
-				1F8688E824BA0F5C00300DA6 /* Launch Screen.storyboard */,
 			);
 			path = TwitterAPIApp;
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 				1F9FDE1C24D029D70091E0FD /* Images in Resources */,
 				D995A442248928870052CE6B /* LaunchScreen.storyboard in Resources */,
 				D995A43F248928870052CE6B /* Assets.xcassets in Resources */,
-				1F8688E924BA0F5C00300DA6 /* Launch Screen.storyboard in Resources */,
 				D995A43A248928840052CE6B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
