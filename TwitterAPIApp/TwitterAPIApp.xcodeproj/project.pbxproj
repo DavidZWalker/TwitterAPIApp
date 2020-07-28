@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F8688E924BA0F5C00300DA6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F8688E824BA0F5C00300DA6 /* Launch Screen.storyboard */; };
 		1F9FDE1A24C4A4970091E0FD /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FDE1924C4A4970091E0FD /* FavoritesTableViewController.swift */; };
+		1F9FDE1C24D029D70091E0FD /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 1F9FDE1B24D029D70091E0FD /* Images */; };
 		1FB930F624B742A10070F16B /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */; };
 		1FB930F824B745260070F16B /* TweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB930F724B745260070F16B /* TweetsTableViewController.swift */; };
 		1FB930FA24B74CD50070F16B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB930F924B74CD50070F16B /* Extensions.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		1F8688E824BA0F5C00300DA6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1F9FDE1924C4A4970091E0FD /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		1F9FDE1B24D029D70091E0FD /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		1FB930F524B742A10070F16B /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
 		1FB930F724B745260070F16B /* TweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsTableViewController.swift; sourceTree = "<group>"; };
 		1FB930F924B74CD50070F16B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		D995A431248928840052CE6B /* TwitterAPIApp */ = {
 			isa = PBXGroup;
 			children = (
+				1F9FDE1B24D029D70091E0FD /* Images */,
 				D9805B4C24AD0B93004B6F3A /* Twitter */,
 				D995A465248928940052CE6B /* Utilities */,
 				D995A432248928840052CE6B /* AppDelegate.swift */,
@@ -329,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9FDE1C24D029D70091E0FD /* Images in Resources */,
 				D995A442248928870052CE6B /* LaunchScreen.storyboard in Resources */,
 				D995A43F248928870052CE6B /* Assets.xcassets in Resources */,
 				1F8688E924BA0F5C00300DA6 /* Launch Screen.storyboard in Resources */,
